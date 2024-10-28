@@ -1,0 +1,38 @@
+CREATE TABLE productos(
+id_produ SERIAL PRIMARY KEY,
+nombre_pro varchar (70) NOT NULL,
+descri_pro varchar (100) NOT NULL,
+precio_pro numeric NOT NULL
+);
+
+INSERT INTO productos VALUES(1,'SEDAL', 'SHAMPOO PARA PELO', 12.000);
+
+SELECT * FROM productos
+
+
+CREATE TABLE inventario(
+id_inventario SERIAL PRIMARY KEY,
+producto_id INT NOT NULL,
+cantidad INT NOT NULL
+); 
+
+INSERT INTO inventario VALUES(1,1,10);
+
+SELECT * FROM inventario
+
+
+http://localhost:3002/inventory/1 put inventario
+{
+  "cantidad": 9
+}
+
+
+//auth_bd
+
+-- Tabla de usuarios
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
+);
